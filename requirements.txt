@@ -11,13 +11,10 @@ python-dotenv
 boto3
 httpx
 2captcha-python
-# ── requirements.txt ──────────────────────────────────────────────────────
-# streamlit
-# anthropic
-# weasyprint          # PDF generation (optional, falls back to HTML)
-# Paste this into requirements.txt in your repo root
-
-
+streamlit
+anthropic
+weasyprint
+    
 # ── .streamlit/secrets.toml  (never commit this file) ────────────────────
 # ANTHROPIC_API_KEY = "sk-ant-xxxxxxxxxxxxxxxxxxxx"
 
