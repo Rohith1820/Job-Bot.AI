@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+playwright
+anthropic
+weasyprint
+sendgrid
+psycopg2-binary
+sqlalchemy
+apscheduler
+python-dotenv
+boto3
+httpx
+2captcha-python
