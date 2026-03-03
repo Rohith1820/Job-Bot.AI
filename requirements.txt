@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-playwright
 anthropic
 weasyprint
 sendgrid
@@ -10,7 +9,10 @@ apscheduler
 python-dotenv
 boto3
 httpx
+beautifulsoup4
 2captcha-python
+lxml
+requests
 streamlit
 anthropic
 weasyprint
