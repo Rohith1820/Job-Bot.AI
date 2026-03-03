@@ -17,6 +17,7 @@ requests
 streamlit
 anthropic
 weasyprint
+httpx
     
 # ── .streamlit/secrets.toml  (never commit this file) ────────────────────
 # ANTHROPIC_API_KEY = "sk-ant-xxxxxxxxxxxxxxxxxxxx"
