@@ -12,11 +12,20 @@ from sqlalchemy import create_engine, Column, String, Integer, DateTime, Text, F
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./jobbot.db")
+DATABASE_URL = os.getenv("postgresql://jobbot_db_p253_user:WECrnZapWW6nltv7ed6wt219kvd9498K@dpg-d6j28lpaae7s739bgiag-a/jobbot_db_p253", "sqlite:///./jobbot.db")
+
+# Fix Render's postgres:// → postgresql:// (SQLAlchemy requires this)
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-engine  = create_engine(DATABASE_URL)
+# Safety check — if still broken URL, fall back to SQLite
+try:
+    engine = create_engine(DATABASE_URL)
+    engine.connect()
+    print(f"✅ Database connected: {DATABASE_URL[:30]}...")
+except Exception as e:
+    print(f"⚠️ DB connect failed ({e}), falling back to SQLite")
+    engine = create_engine("sqlite:///./jobbot.db")
 Session = sessionmaker(bind=engine)
 Base    = declarative_base()
 
